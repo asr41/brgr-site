@@ -308,6 +308,74 @@
             font-weight: 600;
         }
 
+        /* Accomplishments Section */
+        .accomplishments {
+            padding: 8rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .accomplishments-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .accomplishments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .accomplishment-card {
+            background: var(--gradient-surface);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .accomplishment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-glow);
+            border-color: var(--accent-cyan);
+        }
+
+        .accomplishment-tag {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent-cyan);
+            font-weight: 700;
+        }
+
+        .accomplishment-title {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        .accomplishment-body {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .accomplishment-link {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--primary-blue);
+            margin-top: 0.5rem;
+        }
+
         /* Features Section */
         .features {
             padding: 8rem 2rem;
@@ -951,6 +1019,37 @@
                     <li><span class="spec-label">Stall Speed</span><span class="spec-value">13m/s</span></li>
                     <li><span class="spec-label">Parachute</span><span class="spec-value">Optional</span></li>
                 </ul>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="accomplishments">
+        <div class="accomplishments-container">
+            <h2 class="section-title">Releases</h2>
+            <p class="section-subtitle">Milestones, recognition, and open-source work</p>
+            <div class="accomplishments-grid">
+
+                <a href="https://www.nasa.gov/centers-and-facilities/wallops/university-finalists-selected-for-new-nasa-balloon-challenge/" target="_blank" rel="noopener" class="accomplishment-card fade-in">
+                    <div class="accomplishment-tag">In the News</div>
+                    <h3 class="accomplishment-title">University Finalists Selected for New NASA Balloon Challenge</h3>
+                    <p class="accomplishment-body">Selected as Princeton's entry to fly in the NASA FLOATing DRAGON Challenge.</p>
+                    <span class="accomplishment-link">nasa.gov →</span>
+                </a>
+
+                <a href="https://github.com/asr41/ardupilot" target="_blank" rel="noopener" class="accomplishment-card fade-in">
+                    <div class="accomplishment-tag">Open Source</div>
+                    <h3 class="accomplishment-title">Flight Software Repository</h3>
+                    <p class="accomplishment-body">Autopilot fork for autonomous stratospheric glider operations.</p>
+                    <span class="accomplishment-link">https://github.com/asr41/ardupilot →</span>
+                </a>
+
+                <div class="accomplishment-card fade-in">
+                    <div class="accomplishment-tag">Milestone</div>
+                    <h3 class="accomplishment-title">First Flight</h3>
+                    <p class="accomplishment-body">Flew an initial flight in the stratosphere. Unfortunately, the vehicle did not seperate cleanly from the balloon. The vehicle operated nominally until burst and remained in communication until splashdown.</p>
+                </div>
+
             </div>
         </div>
     </section>
