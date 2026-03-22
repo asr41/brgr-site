@@ -345,11 +345,15 @@
         .feature-card {
             background: var(--gradient-surface);
             border-radius: 20px;
-            padding: 3rem 2rem;
+            padding: 0;
             border: 1px solid rgba(0, 212, 255, 0.1);
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
+        }
+
+        .feature-card-body {
+            padding: 2rem;
         }
 
         .feature-card::before {
@@ -375,15 +379,29 @@
         }
 
         .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient-primary);
-            border-radius: 50%;
             display: flex;
-            align-items: center;
             justify-content: center;
-            margin-bottom: 2rem;
-            font-size: 1.5rem;
+            align-items: center;
+            padding: 2rem 2rem 0;
+            position: relative;
+        }
+
+        .feature-icon::before {
+            content: '';
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            background: radial-gradient(circle, rgba(154, 163, 194, 0.18) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .feature-icon img {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: contain;
+            display: block;
+            position: relative;
         }
 
         .feature-title {
@@ -564,6 +582,56 @@
             resize: vertical;
         }
 
+        .contact-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-person {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            border-radius: 15px;
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .contact-name {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-light);
+        }
+
+        .contact-role {
+            font-size: 0.9rem;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-detail {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .contact-detail:hover {
+            color: var(--text-light);
+        }
+
+        @media (max-width: 600px) {
+            .contact-columns {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* Footer */
         footer {
             padding: 3rem 2rem;
@@ -709,51 +777,51 @@
         
         <div class="features-grid">
             <div class="feature-card fade-in">
-                <div class="feature-icon">🛰️</div>
-                <h3 class="feature-title">Autonomous Navigation</h3>
-                <p class="feature-description">
-                    Automatic flight control systems with GPS failsafe capabilities, using sensor fusion and redundant systems for optimal trajectory planning.
-                </p>
+                <div class="feature-icon"><img src="icons/navigation.png" alt="Autonomous Navigation"></div>
+                <div class="feature-card-body">
+                    <h3 class="feature-title">Autonomous Navigation</h3>
+                    <p class="feature-description">Automatic flight control systems with GPS failsafe capabilities, using sensor fusion and redundant systems for optimal trajectory planning.</p>
+                </div>
             </div>
-            
+
             <div class="feature-card fade-in">
-                <div class="feature-icon">🎯</div>
-                <h3 class="feature-title">Composites Fabrication</h3>
-                <p class="feature-description">
-                    Years of carbon fiber and fiberglass experience in aircraft, rocket, and motorsport applications. Expertise in a range of processes with an empahsis on cost effectiveness.
-                </p>
+                <div class="feature-icon"><img src="icons/composites.png" alt="Composites Fabrication"></div>
+                <div class="feature-card-body">
+                    <h3 class="feature-title">Composites Fabrication</h3>
+                    <p class="feature-description">Years of carbon fiber and fiberglass experience in aircraft, rocket, and motorsport applications. Expertise in a range of processes with an emphasis on cost effectiveness.</p>
+                </div>
             </div>
-            
+
             <div class="feature-card fade-in">
-                <div class="feature-icon">🌡️</div>
-                <h3 class="feature-title">Extreme Environment</h3>
-                <p class="feature-description">
-                    Engineered with composites for stratospheric conditions with temperature extremes from -70°C to +50°C, and redundant electronics. Tested in the stratosphere.
-                </p>
+                <div class="feature-icon"><img src="icons/environment.png" alt="Extreme Environment"></div>
+                <div class="feature-card-body">
+                    <h3 class="feature-title">Extreme Environment</h3>
+                    <p class="feature-description">Engineered with composites for stratospheric conditions with temperature extremes from -70°C to +50°C, and redundant electronics. Tested in the stratosphere.</p>
+                </div>
             </div>
-            
+
             <div class="feature-card fade-in">
-                <div class="feature-icon">📡</div>
-                <h3 class="feature-title">Real-time Telemetry</h3>
-                <p class="feature-description">
-                    Continuous mission monitoring with satellite communication links, providing live data streams and redirection capabilities throughout flight operations.
-                </p>
+                <div class="feature-icon"><img src="icons/telemetry.png" alt="Real-time Telemetry"></div>
+                <div class="feature-card-body">
+                    <h3 class="feature-title">Real-time Telemetry</h3>
+                    <p class="feature-description">Continuous mission monitoring with satellite communication links, providing live data streams and redirection capabilities throughout flight operations.</p>
+                </div>
             </div>
-            
+
             <div class="feature-card fade-in">
-                <div class="feature-icon">⚙️</div>
-                <h3 class="feature-title">Modular Design</h3>
-                <p class="feature-description">
-                    Configurable payload bays and mission-specific modifications for diverse applications, with rapid deployment and field-serviceable components.
-                </p>
+                <div class="feature-icon"><img src="icons/modular.png" alt="Modular Design"></div>
+                <div class="feature-card-body">
+                    <h3 class="feature-title">Modular Design</h3>
+                    <p class="feature-description">Configurable payload bays and mission-specific modifications for diverse applications, with rapid deployment and field-serviceable components.</p>
+                </div>
             </div>
-            
+
             <div class="feature-card fade-in">
-                <div class="feature-icon">🏗️</div>
-                <h3 class="feature-title">Economic and Reliable</h3>
-                <p class="feature-description">
-                    Geometries designed for cost-effective production and reliable performance. Uncompromsing strength and quality.
-                </p>
+                <div class="feature-icon"><img src="icons/reliable.png" alt="Economic and Reliable"></div>
+                <div class="feature-card-body">
+                    <h3 class="feature-title">Economic and Reliable</h3>
+                    <p class="feature-description">Geometries designed for cost-effective production and reliable performance. Uncompromsing strength and quality.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -842,19 +910,18 @@
         <div class="contact-container">
             <h2 class="section-title">Get In Touch</h2>
             <p class="section-subtitle">Ready to discuss your stratospheric mission requirements? Contact our engineering team.</p>
-            
-            <form class="contact-form">
-                <div class="form-group">
-                    <input type="text" class="form-input" placeholder="Your Name" required>
-                    <input type="email" class="form-input" placeholder="Email Address" required>
+            <div class="contact-columns">
+                <div class="contact-person">
+                    <div class="contact-name">Adin Kojic</div>
+                    <div class="contact-role">Team Lead</div>
+                    <a href="mailto:adinkojic21@gmail.com" class="contact-detail">adinkojic21@gmail.com</a>
                 </div>
-                <div class="form-group">
-                    <input type="text" class="form-input" placeholder="Organization" required>
-                    <input type="text" class="form-input" placeholder="Application Type" required>
+                <div class="contact-person">
+                    <div class="contact-name">Akash Selvakumar</div>
+                    <div class="contact-role">Alternate Lead</div>
+                    <a href="mailto:akashselvakumar.asr@gmail.com" class="contact-detail">akashselvakumar.asr@gmail.com</a>
                 </div>
-                <textarea class="form-input full-width" placeholder="Project Details & Requirements" required></textarea>
-                <button type="submit" class="cta-button">Send Message</button>
-            </form>
+            </div>
         </div>
     </section>
 
