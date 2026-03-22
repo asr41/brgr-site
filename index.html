@@ -438,9 +438,27 @@
         .application-card {
             background: rgba(255, 255, 255, 0.05);
             border-radius: 15px;
-            padding: 2.5rem 2rem;
+            padding: 0;
             border: 1px solid rgba(0, 212, 255, 0.1);
             transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .application-img {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+        }
+
+        .application-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .application-card-body {
+            padding: 1.5rem 2rem 2rem;
         }
 
         .application-card:hover {
@@ -837,18 +855,27 @@
     <div class="applications-grid">
 
       <div class="application-card fade-in">
-        <h3 class="application-title">Environmental & Atmospheric</h3>
-        <p>Atmospheric sensing, climate monitoring, and environmental data collection from high-altitude environments.</p>
+        <div class="application-img"><img src="icons/on_grass.jpg" alt="Environmental & Atmospheric"></div>
+        <div class="application-card-body">
+          <h3 class="application-title">Environmental & Atmospheric</h3>
+          <p>Atmospheric sensing, climate monitoring, and environmental data collection from high-altitude environments.</p>
+        </div>
       </div>
 
       <div class="application-card fade-in">
-        <h3 class="application-title">Scientific Payload Missions</h3>
-        <p>Support for instrumented experiments, data acquisition, and controlled payload return.</p>
+        <div class="application-img"><img src="icons/scientific.png" alt="Scientific Payload Missions"></div>
+        <div class="application-card-body">
+          <h3 class="application-title">Scientific Payload Missions</h3>
+          <p>Support for instrumented experiments, data acquisition, and controlled payload return.</p>
+        </div>
       </div>
 
       <div class="application-card fade-in">
-        <h3 class="application-title">Remote Sensing & Mapping</h3>
-        <p>High-altitude observation and geospatial data collection for mapping and analysis.</p>
+        <div class="application-img"><img src="icons/remote-sensing.jpg" alt="Remote Sensing & Mapping"></div>
+        <div class="application-card-body">
+          <h3 class="application-title">Remote Sensing & Mapping</h3>
+          <p>High-altitude observation and geospatial data collection for mapping and analysis.</p>
+        </div>
       </div>
 
     </div>
@@ -935,12 +962,12 @@
             <div class="contact-columns">
                 <div class="contact-person">
                     <div class="contact-name">Adin Kojic</div>
-                    <div class="contact-role">Team Lead</div>
+                    <div class="contact-role">Co-Lead</div>
                     <a href="mailto:adinkojic21@gmail.com" class="contact-detail">adinkojic21@gmail.com</a>
                 </div>
                 <div class="contact-person">
                     <div class="contact-name">Akash Selvakumar</div>
-                    <div class="contact-role">Alternate Lead</div>
+                    <div class="contact-role">Co-Lead</div>
                     <a href="mailto:akashselvakumar.asr@gmail.com" class="contact-detail">akashselvakumar.asr@gmail.com</a>
                 </div>
             </div>
@@ -949,12 +976,12 @@
 
     <footer>
         <div class="footer-content">
-            <div class="footer-links">
+            <!--div class="footer-links">
                 <a href="#privacy">Privacy Policy</a>
                 <a href="#terms">Terms of Service</a>
                 <a href="#support">Technical Support</a>
                 <a href="#downloads">Documentation</a>
-            </div>
+            </div-->
             <p>&copy; 2026 Balloon Research Glider Recovery.</p>
         </div>
     </footer>
