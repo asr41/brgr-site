@@ -41,7 +41,6 @@
             overflow-x: hidden;
         }
 
-        /* Starfield canvas background */
         #starfield {
             position: fixed;
             top: 0;
@@ -51,7 +50,6 @@
             z-index: -1;
         }
 
-        /* Hero video background */
         .hero-video-bg {
             position: absolute;
             inset: 0;
@@ -81,7 +79,6 @@
             );
         }
 
-        /* Fallback image shown when no video */
         .hero-video-bg .hero-img-fallback {
             position: absolute;
             inset: 0;
@@ -91,7 +88,6 @@
             opacity: 0.35;
         }
 
-        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -121,6 +117,20 @@
             background-clip: text;
             -webkit-text-fill-color: transparent;
             text-decoration: none;
+        }
+
+        .read-more {
+            display: inline-block;
+            margin-top: 1rem;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .read-more:hover {
+            color: var(--accent-cyan);
         }
 
         .nav-links {
@@ -157,7 +167,6 @@
             width: 100%;
         }
 
-        /* Hero Section */
         .hero {
             height: 100vh;
             display: flex;
@@ -176,14 +185,8 @@
         }
 
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
 
         .hero h1 {
@@ -238,16 +241,13 @@
             transition: left 0.6s ease;
         }
 
-        .cta-button:hover::before {
-            left: 100%;
-        }
+        .cta-button:hover::before { left: 100%; }
 
         .cta-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 25px 50px rgba(0, 102, 204, 0.4);
         }
 
-        /* Vehicle showcase */
         .vehicle-showcase {
             display: flex;
             justify-content: center;
@@ -261,7 +261,6 @@
             filter: drop-shadow(0 0 40px rgba(154, 163, 194, 0.25));
         }
 
-        /* Stats Section */
         .stats {
             padding: 6rem 2rem;
             background: var(--gradient-surface);
@@ -283,14 +282,9 @@
             background: rgba(255, 255, 255, 0.05);
             border-radius: 20px;
             border: 1px solid rgba(0, 212, 255, 0.1);
-            transition: all 0.3s ease;
+            cursor: default;
         }
 
-        .stat-item:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-glow);
-            border-color: var(--accent-cyan);
-        }
 
         .stat-number {
             font-family: var(--font-display);
@@ -308,7 +302,6 @@
             font-weight: 600;
         }
 
-        /* Accomplishments Section */
         .accomplishments {
             padding: 8rem 2rem;
             max-width: 1400px;
@@ -376,7 +369,6 @@
             margin-top: 0.5rem;
         }
 
-        /* Features Section */
         .features {
             padding: 8rem 2rem;
             max-width: 1400px;
@@ -410,6 +402,7 @@
             gap: 3rem;
         }
 
+        /* ── Feature card base ── */
         .feature-card {
             background: var(--gradient-surface);
             border-radius: 20px;
@@ -418,10 +411,9 @@
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
-        }
-
-        .feature-card-body {
-            padding: 2rem;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
         .feature-card::before {
@@ -436,14 +428,38 @@
             transition: transform 0.4s ease;
         }
 
-        .feature-card:hover {
+        /* Linked cards: full hover affordance + pointer cursor */
+        .feature-card--linked {
+            cursor: pointer;
+        }
+
+        .feature-card--linked:hover {
             transform: translateY(-10px);
             box-shadow: var(--shadow-glow);
             border-color: var(--accent-cyan);
         }
 
-        .feature-card:hover::before {
+        .feature-card--linked:hover::before {
             transform: scaleX(1);
+        }
+
+        /* Static cards: no hover feedback, default cursor */
+        .feature-card--static {
+            cursor: default;
+        }
+
+        .feature-card--static:hover {
+            transform: none;
+            box-shadow: none;
+            border-color: rgba(0, 212, 255, 0.1);
+        }
+
+        .feature-card--static:hover::before {
+            transform: scaleX(0);
+        }
+
+        .feature-card-body {
+            padding: 2rem;
         }
 
         .feature-icon {
@@ -485,7 +501,6 @@
             line-height: 1.7;
         }
 
-        /* Applications Section */
         .applications {
             padding: 8rem 2rem;
             background: var(--gradient-surface);
@@ -508,8 +523,8 @@
             border-radius: 15px;
             padding: 0;
             border: 1px solid rgba(0, 212, 255, 0.1);
-            transition: all 0.3s ease;
             overflow: hidden;
+            cursor: default;
         }
 
         .application-img {
@@ -529,11 +544,7 @@
             padding: 1.5rem 2rem 2rem;
         }
 
-        .application-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-cyan);
-            box-shadow: var(--shadow-glow);
-        }
+
 
         .application-title {
             font-family: var(--font-display);
@@ -562,7 +573,6 @@
             font-weight: bold;
         }
 
-        /* Technical Specs */
         .tech-specs {
             padding: 8rem 2rem;
             max-width: 1200px;
@@ -609,16 +619,9 @@
             border-bottom: none;
         }
 
-        .spec-label {
-            color: var(--text-muted);
-        }
+        .spec-label { color: var(--text-muted); }
+        .spec-value { color: var(--text-light); font-weight: 600; }
 
-        .spec-value {
-            color: var(--text-light);
-            font-weight: 600;
-        }
-
-        /* Contact Section */
         .contact {
             padding: 8rem 2rem;
             background: var(--gradient-surface);
@@ -631,41 +634,16 @@
             margin: 0 auto;
         }
 
-        .contact-form {
-            display: grid;
-            gap: 2rem;
-            margin-top: 3rem;
+        .team-photo-block {
+            margin-top: 2rem;
+            width: 100%;
         }
 
-        .form-group {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-
-        .form-input {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            border-radius: 10px;
-            padding: 1rem;
-            color: var(--text-light);
-            font-family: var(--font-body);
-            transition: all 0.3s ease;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: var(--accent-cyan);
-            box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
-        }
-
-        .form-input.full-width {
-            grid-column: 1 / -1;
-        }
-
-        textarea.form-input {
-            height: 150px;
-            resize: vertical;
+        .team-photo-block img {
+            width: 100%;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 212, 255, 0.12);
+            display: block;
         }
 
         .contact-columns {
@@ -708,17 +686,12 @@
             transition: color 0.2s ease;
         }
 
-        .contact-detail:hover {
-            color: var(--text-light);
-        }
+        .contact-detail:hover { color: var(--text-light); }
 
         @media (max-width: 600px) {
-            .contact-columns {
-                grid-template-columns: 1fr;
-            }
+            .contact-columns { grid-template-columns: 1fr; }
         }
 
-        /* Footer */
         footer {
             padding: 3rem 2rem;
             background: var(--dark-navy);
@@ -745,30 +718,14 @@
             transition: color 0.3s ease;
         }
 
-        .footer-links a:hover {
-            color: var(--accent-cyan);
-        }
+        .footer-links a:hover { color: var(--accent-cyan); }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .form-group {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .section-title {
-                font-size: 2.5rem;
-            }
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.5rem; }
+            .section-title { font-size: 2.5rem; }
         }
 
-        /* Scroll animations */
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
@@ -780,23 +737,10 @@
             transform: translateY(0);
         }
 
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--dark-navy);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--gradient-primary);
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--accent-cyan);
-        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--dark-navy); }
+        ::-webkit-scrollbar-thumb { background: var(--gradient-primary); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent-cyan); }
     </style>
 </head>
 <body>
@@ -815,11 +759,10 @@
         </div>
     </nav>
 
-    <section id ="top" class="hero">
-        <!-- Drop your own video file in as hero.mp4 next to index.html -->
+    <section id="top" class="hero">
         <div class="hero-video-bg">
             <video autoplay muted playsinline poster="" id="hero-video">
-                <source src="hero.mp4" type="video/mp4">
+                <source src="videos/hero.mp4" type="video/mp4">
             </video>
         </div>
         <div class="hero-content">
@@ -832,7 +775,6 @@
         </div>
     </section>
 
-    <!-- Vehicle showcase — drop headon.png (transparent background) next to index.html -->
     <section class="vehicle-showcase">
         <img src="headon.PNG" alt="BRGR Glide Vehicle" class="vehicle-image">
     </section>
@@ -863,23 +805,29 @@
         <p class="section-subtitle">Experience for reliable autonomous operations in stratospheric environments</p>
         
         <div class="features-grid">
-            <div class="feature-card fade-in">
+
+            <!-- LINKED: Autonomous Navigation -->
+            <a href="autonomous-navigation.html" class="feature-card feature-card--linked fade-in">
                 <div class="feature-icon"><img src="icons/navigation.png" alt="Autonomous Navigation"></div>
                 <div class="feature-card-body">
                     <h3 class="feature-title">Autonomous Navigation</h3>
-                    <p class="feature-description">Automatic flight control systems with GPS failsafe capabilities, using sensor fusion and redundant systems for optimal trajectory planning.</p>
+                    <p class="feature-description">Custom control software designed for our unconventional tri-gridfin architecture, validated through a purpose-built 6-DoF simulator.</p>
+                    <span class="read-more">Read More →</span>
                 </div>
-            </div>
+            </a>
 
-            <div class="feature-card fade-in">
+            <!-- LINKED: Composites Fabrication -->
+            <a href="composites-fabrication.html" class="feature-card feature-card--linked fade-in">
                 <div class="feature-icon"><img src="icons/composites.png" alt="Composites Fabrication"></div>
                 <div class="feature-card-body">
                     <h3 class="feature-title">Composites Fabrication</h3>
-                    <p class="feature-description">Years of carbon fiber and fiberglass experience in aircraft, rocket, and motorsport applications. Expertise in a range of processes with an emphasis on cost effectiveness.</p>
+                    <p class="feature-description">Fully in-house fabrication spanning wet-layup carbon wings, autoclave-cured composites, and precision Garolite internals.</p>
+                    <span class="read-more">Read More →</span>
                 </div>
-            </div>
+            </a>
 
-            <div class="feature-card fade-in">
+            <!-- STATIC: Extreme Environment -->
+            <div class="feature-card feature-card--static fade-in">
                 <div class="feature-icon"><img src="icons/environment.png" alt="Extreme Environment"></div>
                 <div class="feature-card-body">
                     <h3 class="feature-title">Extreme Environment</h3>
@@ -887,7 +835,8 @@
                 </div>
             </div>
 
-            <div class="feature-card fade-in">
+            <!-- STATIC: Real-time Telemetry -->
+            <div class="feature-card feature-card--static fade-in">
                 <div class="feature-icon"><img src="icons/telemetry.png" alt="Real-time Telemetry"></div>
                 <div class="feature-card-body">
                     <h3 class="feature-title">Real-time Telemetry</h3>
@@ -895,7 +844,8 @@
                 </div>
             </div>
 
-            <div class="feature-card fade-in">
+            <!-- STATIC: Modular Design -->
+            <div class="feature-card feature-card--static fade-in">
                 <div class="feature-icon"><img src="icons/modular.png" alt="Modular Design"></div>
                 <div class="feature-card-body">
                     <h3 class="feature-title">Modular Design</h3>
@@ -903,58 +853,51 @@
                 </div>
             </div>
 
-            <div class="feature-card fade-in">
+            <!-- STATIC: Economic and Reliable -->
+            <div class="feature-card feature-card--static fade-in">
                 <div class="feature-icon"><img src="icons/reliable.png" alt="Economic and Reliable"></div>
                 <div class="feature-card-body">
                     <h3 class="feature-title">Economic and Reliable</h3>
-                    <p class="feature-description">Geometries designed for cost-effective production and reliable performance. Uncompromsing strength and quality.</p>
+                    <p class="feature-description">Geometries designed for cost-effective production and reliable performance. Uncompromising strength and quality.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="applications" class="applications">
+        <div class="applications-container">
+            <h2 class="section-title">Mission Applications</h2>
+            <p class="section-subtitle">A flexible platform for high-altitude deployment and autonomous recovery missions.</p>
+            <div class="applications-grid">
+                <div class="application-card fade-in">
+                    <div class="application-img"><img src="icons/on_grass.jpg" alt="Environmental Research"></div>
+                    <div class="application-card-body">
+                        <h3 class="application-title">Environmental Research</h3>
+                        <p>Atmospheric sensing, climate monitoring, and environmental data collection from high-altitude environments.</p>
+                    </div>
+                </div>
+                <div class="application-card fade-in">
+                    <div class="application-img"><img src="icons/scientific.png" alt="Scientific Payload Missions"></div>
+                    <div class="application-card-body">
+                        <h3 class="application-title">Scientific Payload Missions</h3>
+                        <p>Support for instrumented experiments, data acquisition, and controlled payload return.</p>
+                    </div>
+                </div>
+                <div class="application-card fade-in">
+                    <div class="application-img"><img src="icons/remote-sensing.jpg" alt="Remote Sensing & Mapping"></div>
+                    <div class="application-card-body">
+                        <h3 class="application-title">Remote Sensing &amp; Mapping</h3>
+                        <p>High-altitude observation and geospatial data collection for mapping and analysis.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="applications" class="applications">
-  <div class="applications-container">
-    
-    <h2 class="section-title">Mission Applications</h2>
-    <p class="section-subtitle">
-      A flexible platform for high-altitude deployment and autonomous recovery missions.
-    </p>
-
-    <div class="applications-grid">
-
-      <div class="application-card fade-in">
-        <div class="application-img"><img src="icons/on_grass.jpg" alt="Environmental Research"></div>
-        <div class="application-card-body">
-          <h3 class="application-title">Environmental Research</h3>
-          <p>Atmospheric sensing, climate monitoring, and environmental data collection from high-altitude environments.</p>
-        </div>
-      </div>
-
-      <div class="application-card fade-in">
-        <div class="application-img"><img src="icons/scientific.png" alt="Scientific Payload Missions"></div>
-        <div class="application-card-body">
-          <h3 class="application-title">Scientific Payload Missions</h3>
-          <p>Support for instrumented experiments, data acquisition, and controlled payload return.</p>
-        </div>
-      </div>
-
-      <div class="application-card fade-in">
-        <div class="application-img"><img src="icons/remote-sensing.jpg" alt="Remote Sensing & Mapping"></div>
-        <div class="application-card-body">
-          <h3 class="application-title">Remote Sensing & Mapping</h3>
-          <p>High-altitude observation and geospatial data collection for mapping and analysis.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
     <section id="specs" class="tech-specs">
         <h2 class="section-title">Technical Specifications</h2>
         <p class="section-subtitle">Performance parameters and operational capabilities</p>
-        
         <div class="specs-grid">
             <div class="spec-category fade-in">
                 <h3 class="spec-title">Flight Performance</h3>
@@ -963,10 +906,9 @@
                     <li><span class="spec-label">Glide Ratio</span><span class="spec-value">14:1</span></li>
                     <li><span class="spec-label">Max Range</span><span class="spec-value">>200km</span></li>
                     <li><span class="spec-label">Descent Rate</span><span class="spec-value">5-15 m/s</span></li>
-                    <li><span class="spec-label">Landing Speed</span><span class="spec-value"><3 m/s</span></li>
+                    <li><span class="spec-value">&lt; 3 m/s</span></li>
                 </ul>
             </div>
-            
             <div class="spec-category fade-in">
                 <h3 class="spec-title">Physical Properties</h3>
                 <ul class="spec-list">
@@ -977,7 +919,6 @@
                     <li><span class="spec-label">Materials</span><span class="spec-value">Carbon Fiber, Fiberglass</span></li>
                 </ul>
             </div>
-            
             <div class="spec-category fade-in">
                 <h3 class="spec-title">Environmental</h3>
                 <ul class="spec-list">
@@ -988,7 +929,6 @@
                     <li><span class="spec-label">UV Resistance</span><span class="spec-value">Yes</span></li>
                 </ul>
             </div>
-            
             <div class="spec-category fade-in">
                 <h3 class="spec-title">Systems & Power</h3>
                 <ul class="spec-list">
@@ -999,7 +939,6 @@
                     <li><span class="spec-label">Deployment Time</span><span class="spec-value">< 30 minutes</span></li>
                 </ul>
             </div>
-
             <div class="spec-category fade-in">
                 <h3 class="spec-title">Payload Capabilities</h3>
                 <ul class="spec-list">
@@ -1010,7 +949,6 @@
                     <li><span class="spec-label">Interface</span><span class="spec-value">100 Mbps Ethernet</span></li>
                 </ul>
             </div>
-
             <div class="spec-category fade-in">
                 <h3 class="spec-title">Aerodynamic Performance</h3>
                 <ul class="spec-list">
@@ -1024,33 +962,31 @@
         </div>
     </section>
 
-    
     <section id="releases" class="accomplishments">
         <div class="accomplishments-container">
             <h2 class="section-title">Releases</h2>
             <p class="section-subtitle">Milestones, recognition, and open-source work</p>
             <div class="accomplishments-grid">
-
                 <a href="https://www.nasa.gov/centers-and-facilities/wallops/university-finalists-selected-for-new-nasa-balloon-challenge/" target="_blank" rel="noopener" class="accomplishment-card fade-in">
                     <div class="accomplishment-tag">In the News</div>
                     <h3 class="accomplishment-title">University Finalists Selected for New NASA Balloon Challenge</h3>
                     <p class="accomplishment-body">Selected as Princeton's entry to fly in the NASA FLOATing DRAGON Challenge.</p>
                     <span class="accomplishment-link">nasa.gov →</span>
                 </a>
-
                 <a href="https://github.com/asr41/ardupilot" target="_blank" rel="noopener" class="accomplishment-card fade-in">
                     <div class="accomplishment-tag">Open Source</div>
                     <h3 class="accomplishment-title">Flight Software Repository</h3>
                     <p class="accomplishment-body">Autopilot fork for autonomous stratospheric glider operations.</p>
                     <span class="accomplishment-link">https://github.com/asr41/ardupilot →</span>
                 </a>
-
-                <div class="accomplishment-card fade-in">
+                <a href="first-flight.html" class="accomplishment-card fade-in">
                     <div class="accomplishment-tag">Milestone</div>
                     <h3 class="accomplishment-title">First Flight</h3>
-                    <p class="accomplishment-body">Flew an initial flight in the stratosphere. Unfortunately, the vehicle did not seperate cleanly from the balloon. The vehicle operated nominally until burst and remained in communication until splashdown.</p>
-                </div>
-
+                    <p class="accomplishment-body">
+                        Flew an initial flight in the stratosphere. Unfortunately, the vehicle did not separate cleanly from the balloon. The vehicle operated nominally until burst and remained in communication until splashdown.
+                    </p>
+                    <span class="accomplishment-link">Read Release →</span>
+                </a>
             </div>
         </div>
     </section>
@@ -1071,22 +1007,19 @@
                     <a href="mailto:akashselvakumar.asr@gmail.com" class="contact-detail">akashselvakumar.asr@gmail.com</a>
                 </div>
             </div>
+            <div class="team-photo-block">
+                <img src="images/team.jpg" alt="The BRGR Team">
+            </div>
         </div>
     </section>
 
     <footer>
         <div class="footer-content">
-            <!--div class="footer-links">
-                <a href="#privacy">Privacy Policy</a>
-                <a href="#terms">Terms of Service</a>
-                <a href="#support">Technical Support</a>
-                <a href="#downloads">Documentation</a>
-            </div-->
             <p>&copy; 2026 Balloon Research Glider Recovery.</p>
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Starfield canvas animation
         (function() {
             const canvas = document.getElementById('starfield');
@@ -1135,14 +1068,13 @@
             draw();
         })();
 
-        // Hero video: play normally, ease to a stop over the last 100ms, hold on last frame
+        // Hero video: ease to a stop over the last second, then replay after pause
         const heroVideo = document.getElementById('hero-video');
         if (heroVideo) {
             function rafLoop() {
                 if (!heroVideo.paused && !heroVideo.ended && heroVideo.duration) {
                     const remaining = heroVideo.duration - heroVideo.currentTime;
                     if (remaining <= 0.77) {
-                        // Linear ease from 1x at 1s-to-go down to 0x at the end
                         heroVideo.playbackRate = Math.max((remaining)**2 + 0.4, 0.4);
                     }
                 }
@@ -1158,76 +1090,29 @@
             });
         }
 
-        // Smooth scrolling for navigation links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
 
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
+        // Fade-in on scroll
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('visible');
             });
-        }, observerOptions);
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        // Parallax effect for background
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const bg = document.querySelector('.bg-animation::before');
-            const rate = scrolled * -0.5;
-        });
-
-        // Form submission
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Simulate form submission
-            const button = this.querySelector('.cta-button');
-            const originalText = button.textContent;
-            button.textContent = 'Sending...';
-            button.style.opacity = '0.7';
-            
-            setTimeout(() => {
-                button.textContent = 'Error';
-                button.style.background = 'var(--warning-amber)';
-                
-                setTimeout(() => {
-                    button.textContent = originalText;
-                    button.style.background = 'var(--gradient-primary)';
-                    button.style.opacity = '1';
-                    this.reset();
-                }, 2000);
-            }, 1500);
-        });
-
-        // Dynamic stats counter animation
+        // Stats counter animation
         function animateCounters() {
-            const counters = document.querySelectorAll('.stat-number');
-            counters.forEach(counter => {
+            document.querySelectorAll('.stat-number').forEach(counter => {
                 const target = counter.textContent;
-                const isNumber = /^\d+/.test(target);
-                
-                if (isNumber) {
+                if (/^\d+/.test(target)) {
                     const num = parseInt(target);
                     let current = 0;
                     const increment = num / 50;
@@ -1244,8 +1129,6 @@
             });
         }
 
-        // Trigger counter animation when stats section is visible
-        const statsSection = document.querySelector('.stats');
         const statsObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1255,14 +1138,13 @@
             });
         }, { threshold: 0.5 });
 
-        statsObserver.observe(statsSection);
+        statsObserver.observe(document.querySelector('.stats'));
 
-        // Navigation background opacity on scroll
+        // Nav background opacity on scroll
         window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
             const scrolled = window.pageYOffset;
-            const opacity = Math.min(scrolled / 100, 0.95);
-            nav.style.background = `rgba(10, 20, 40, ${opacity})`;
+            document.querySelector('nav').style.background =
+                `rgba(10, 20, 40, ${Math.min(scrolled / 100, 0.95)})`;
         });
     </script>
 </body>
