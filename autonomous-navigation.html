@@ -43,15 +43,13 @@
         <h2 class="section-title" style="margin-top: 0;">Three-Gridfin Architecture</h2>
 
         <p class="feature-description">
-            Our vehicle employs a <strong>three-gridfin control architecture</strong>, selected to exploit the high-drag
-            control authority of gridfins during descent from balloon release conditions. Unlike traditional control
-            surfaces, gridfins provide strong aerodynamic effectiveness across a wide range of flow regimes,
-            particularly in the low-density stratosphere.
+            Our vehicle employs a <strong>three-gridfin control architecture</strong>, selected to exploit the compact form with strong aerodynamic
+            control authority. During descent from balloon release they maintain stability and moderate speed in the transconic regime. In aerodynamic flight they provide robust control authority for precision landing.
         </p>
 
         <p class="feature-description">
-            This unconventional configuration required the development of a <strong>custom control mixing
-            algorithm</strong>. Standard flight control frameworks assume conventional control surface layouts and
+            This unconventional configuration required the development of a custom control mixing
+            algorithm typical of missile systems. Standard flight control frameworks assume conventional control surface layouts and
             do not natively support tri-gridfin geometries.
         </p>
 
@@ -65,11 +63,11 @@
 
         <p class="feature-description">
             To accelerate development, we built on the open-source ArduPilot ecosystem. While robust and widely
-            validated, it does not support multi-fin mixing for this configuration out of the box.
+            validated, it does not natively support multi-fin mixing for this configuration out of the box.
         </p>
 
         <p class="feature-description">
-            We extended the codebase to implement <strong>custom actuator mixing logic</strong>, enabling stable
+            We modified the firmware to implement custom actuator mixing logic, enabling stable
             control across all flight phases.
         </p>
 
@@ -104,7 +102,7 @@
         </p>
 
         <p class="feature-description">
-            PLAV allows users to define their own aerodynamic models and simulate flight in a realistic Earth
+            PLAV allows users to quickly define their own aerodynamic models and simulate flight in a realistic Earth
             environment. Our implementation incorporates aerodynamic coefficients derived from both
             <strong>CFD analysis and wind tunnel testing</strong>.
         </p>
